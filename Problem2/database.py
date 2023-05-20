@@ -30,12 +30,12 @@ class database():
         self.posts = self.db.posts
         #print(self.db)
     
-    def insertDocument(self, post:dict):
+    def insertPosts(self, post:dict):
         #posts = self.db.posts
         post_id = self.posts.insert_one(post).inserted_id
 
-    def getDocument(self, quary:dict):
-        return self.posts.find_one(quary)
+    def getPost(self, query:dict):
+        return self.posts.find_one(query)
     
     def printPosts(self):
         for post in self.posts.find():
@@ -45,15 +45,17 @@ class database():
         for post in self.posts.find():
             yield post
 
-    def deletePost(self, quary:dict):
+    def deletePost(self, query:dict):
         self.posts.delete_one(quary)
     
 def main():
     db = database(username="Aggie", password="Aggie")
-    db.insertDocument({
-        "StudentID":"006",
-        "timestamp": datetime.datetime.utcnow()
+    db.deletePost({
+        "StudentID":"005626665"
     })
-    print(db.printPosts())
+
+    for post in db.returnPosts():
+        pprint.pprint(post)
+
 if __name__ == "__main__":
     main()
