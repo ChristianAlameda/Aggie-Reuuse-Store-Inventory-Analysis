@@ -1,4 +1,5 @@
 import settingUp
+import cv2
 class Interface:
     def __init__(self):
         self.selections = ['Bag/Backpack',
@@ -66,7 +67,7 @@ class Interface:
         return item
     
     
-    item2 = selector()
+
     
     settingUp.remove()
     def typeOfSelections(self):
@@ -78,8 +79,13 @@ class Interface:
     customerChoice = int(input("Enter [0] - add an item '\n'Enter [1] - remove an item'\n'Enter here: "))
     if customerChoice == 0:
         #take a picture call it takePicture
+        camera = cv2.VideoCapture(0)
+        for i in range(10):
+            return_value, image = camera.read()
+            cv2.imwrite('opencv'+str(i)+'.png', image)
+        del(camera)
         itemDescription  = {
-            "item1" : selector(),
+            "item" : selector(),
             "picture" : takePicture,
             "addedItemDescription" : input('Write me a description of the item you are adding')
         }
