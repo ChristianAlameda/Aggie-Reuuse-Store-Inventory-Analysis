@@ -78,6 +78,6 @@ class Interface:
     if customerChoice == 0:
         item1 = selector()
         settingUp.add(item1)
-    elif customerChoice == 0:
+    elif customerChoice == 1:
         item1 = selector()
         settingUp.remove(item2)
