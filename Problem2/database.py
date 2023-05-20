@@ -30,7 +30,7 @@ class database():
         self.posts = self.db.posts
         #print(self.db)
     
-    def insertDocument(self, post:json):
+    def insertDocument(self, post:dict):
         #posts = self.db.posts
         post_id = self.posts.insert_one(post).inserted_id
 
@@ -41,8 +41,12 @@ class database():
         for post in self.posts.find():
             pprint.pprint(post)
 
-    def removePost(self):
-        pass
+    def returnPosts(self):
+        for post in self.posts.find():
+            yield post
+
+    def deletePost(self, quary:dict):
+        self.posts.delete_one(quary)
     
 def main():
     db = database(username="Aggie", password="Aggie")
