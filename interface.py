@@ -51,14 +51,33 @@ class Interface:
             item = self.selections[11]
         elif selection == 12:
             item = self.selections[12]
-        print(item)
+        elif selection == 13:
+            item = self.selections[13]
+        elif selection == 14:
+            item = self.selections[14]
+        elif selection == 15:
+            item = self.selections[15]
+        elif selection == 16:
+            item = self.selections[16]
+        elif selection == 17:
+            item = self.selections[17]
+        elif selection == 18:
+            item = self.selections[18]
         return item
-
     
-    def add(self, item):
-        pass
+    
+    item2 = selector()
+    settingUp.remove(item2)
     def typeOfSelections(self):
         x = 0
         for i in self.selections:
             print('[' +str(x)+ '] - '+i)
             x = x+1
+            
+    customerChoice = int(input("Enter [0] - add an item '\n'Enter [1] - remove an item'\n'Enter here: "))
+    if customerChoice == 0:
+        item1 = selector()
+        settingUp.add(item1)
+    elif customerChoice == 0:
+        item1 = selector()
+        settingUp.remove(item2)
