@@ -1,12 +1,12 @@
-import pymongo
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-mydb = myclient["mydatabase"]
-print(myclient.list_database_names())
 
-class inventory:
+import datetime
+import Problem2.database
+class Inventory:
     def __init__(self):
         pass
     def add(self,itemName):
+        addedItemDescription = input('Write me a description of the item you are adding')
+        addedItemTime = datetime.datetime.now()
         pass
     def remove(self, itemName):
         pass
