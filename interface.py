@@ -1,9 +1,27 @@
 import settingUp
 class Interface:
-    def init(self):
-        print('')
-        settingUp.add()
-    def add(self):
+    def __init__(self):
+        self.selections = ['Bag/Backpack',
+            'belt',
+            'Books',
+            'Dress',
+            'Hat', 
+            'Household',
+            'Jacket',
+            'Long-sleeve/button up',
+            'Pants/Jeans', 
+            'Ring/Jewelry',
+            'School supplies',
+            'Shirts',
+            'Shoes',
+            'Skirt',
+            'Sunglasses',
+            'Sweater/Carnigan',
+            'Tank Top',
+            'Tie',
+            'Misc'
+        ]
+    def selector(self):
         self.typeOfSelections()
         selection = int(input('What would you like to add: '))
         
@@ -33,31 +51,14 @@ class Interface:
             item = self.selections[11]
         elif selection == 12:
             item = self.selections[12]
-            
+        print(item)
+        return item
 
-            
+    
+    def add(self, item):
+        pass
     def typeOfSelections(self):
-        selections = ['Bag/Backpack',
-            'belt',
-            'Books',
-            'Dress',
-            'Hat', 
-            'Household',
-            'Jacket',
-            'Long-sleeve/button up',
-            'Pants/Jeans', 
-            'Ring/Jewelry',
-            'School supplies',
-            'Shirts',
-            'Shoes',
-            'Skirt',
-            'Sunglasses',
-            'Sweater/Carnigan',
-            'Tank Top',
-            'Tie',
-            'Misc'
-        ]
         x = 0
-        for i in selections:
+        for i in self.selections:
             print('[' +str(x)+ '] - '+i)
             x = x+1
