@@ -40,6 +40,9 @@ class database():
     def printPosts(self):
         for post in self.posts.find():
             pprint.pprint(post)
+
+    def removePost(self):
+        pass
     
 def main():
     db = database(username="Aggie", password="Aggie")
