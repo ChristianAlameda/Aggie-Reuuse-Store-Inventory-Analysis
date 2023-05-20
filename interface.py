@@ -67,7 +67,8 @@ class Interface:
     
     
     item2 = selector()
-    settingUp.remove(item2)
+    
+    settingUp.remove()
     def typeOfSelections(self):
         x = 0
         for i in self.selections:
@@ -76,8 +77,14 @@ class Interface:
             
     customerChoice = int(input("Enter [0] - add an item '\n'Enter [1] - remove an item'\n'Enter here: "))
     if customerChoice == 0:
-        item1 = selector()
-        settingUp.add(item1)
+        #take a picture call it takePicture
+        itemDescription  = {
+            "item1" : selector(),
+            "picture" : takePicture,
+            "addedItemDescription" : input('Write me a description of the item you are adding')
+        }
+        
+        settingUp.add(itemDescription)
     elif customerChoice == 1:
         item1 = selector()
         settingUp.remove(item2)
