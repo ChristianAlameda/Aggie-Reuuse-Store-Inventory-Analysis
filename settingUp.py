@@ -1,9 +1,6 @@
-import pymongo
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-mydb = myclient["mydatabase"]
-print(myclient.list_database_names())
 
-class inventory:
+
+class Inventory:
     def __init__(self):
         pass
     def add(self,itemName):

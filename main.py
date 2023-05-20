@@ -1,3 +1,4 @@
-
+import interface
 if __name__=="__main__":
-    main()
+    x = interface.Interface()
+    x.add()
