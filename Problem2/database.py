@@ -1,5 +1,8 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+import json
+import datetime
+import pprint
 # uri = "mongodb+srv://Aggie:Aggie@Aggie.2ddyt5b.mongodb.net/?retryWrites=true&w=majority"
 # # Create a new client and connect to the server
 # client = MongoClient(uri, server_api=ServerApi('1'))
@@ -24,9 +27,26 @@ class database():
         except Exception as e:
             print(e)
         self.db = self.client.Aggie
-        print(self.db)
+        self.posts = self.db.posts
+        #print(self.db)
     
-    def add():
-        pass
+    def insertDocument(self, post:json):
+        #posts = self.db.posts
+        post_id = self.posts.insert_one(post).inserted_id
 
-db = database(username="Aggie", password="Aggie")
+    def getDocument(self, quary:dict):
+        return self.posts.find_one(quary)
+    
+    def printPosts(self):
+        for post in self.posts.find():
+            pprint.pprint(post)
+    
+def main():
+    db = database(username="Aggie", password="Aggie")
+    db.insertDocument({
+        "StudentID":"006",
+        "timestamp": datetime.datetime.utcnow()
+    })
+    print(db.printPosts())
+if __name__ == "__main__":
+    main()
