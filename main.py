@@ -1,5 +1,7 @@
-import interface
+from interface import Interface
+from QRCODE import QRCODE
 if __name__=="__main__":
-    x = interface.Interface()
+    x = Interface()
     x.choice()
+    
     

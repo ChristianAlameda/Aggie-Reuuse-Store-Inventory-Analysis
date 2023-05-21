@@ -1,9 +1,13 @@
 from settingUp import Inventory
 import cv2
 import time
+import os
+from QRCODE import QRCODE
+#from gridfs import GridFS
 class Interface:
     def __init__(self):
         self.Inventory = Inventory()
+        
         self.selections = ['Bag/Backpack',
             'belt',
             'Books',
@@ -87,16 +91,27 @@ class Interface:
             input('Press Enter to capture(In 3 seconds)')
             time.sleep(3)
             return_value, image = camera.read()
-            picture = cv2.imwrite('opencv'+'.png', image)
+            cv2.imwrite('opencv'+'.png', image)
+            #aws to make it a url
             item = self.selector()
             del(camera)
+            qrcode = os.path.join('qrcode.png')
+            picture = os.path.join('picture.png')
             itemDescription  = {
                 "item" : item,
                 "picture" : picture,
+                "qrcode": qrcode,
                 "addedItemDescription" : input('Write me a description of the item you are adding: ')
             }
             
             self.Inventory.add(itemDescription)
         elif customerChoice == 1:
-            item = self.selector()
+            item1 = self.selector()
+            item = {
+                "item":item1,
+                "picture":None,
+                "qrcode":None,
+                "addedItemDescription":None
+            }
+            
             self.Inventory.remove(item)
