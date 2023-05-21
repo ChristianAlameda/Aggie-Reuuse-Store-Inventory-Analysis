@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <title>Home Page</title>
     <link rel="stylesheet" type="text/css" href="style_dashboard.css">
 </head>
@@ -9,6 +8,10 @@
     <div class="container">
         <h2>Welcome to the Home Page</h2>
         <div class="buttons">
+            <button class="add" onclick="openDropdown()">Add</button>
+            <button class="remove">Remove</button>
+            <button class="view">View Excel</button>
+            <button class="upload" onclick="uploadImage()">Upload Image</button>
             <button class="add" onclick="openDropdown1()">Add</button>
             <button class="remove" onclick="openDropdown2()">Remove</button>
             <button class="view" onclick="excel()">View Excel</button>
@@ -25,7 +28,20 @@
         function excel(){
             window.location.href = "Problem2/stats.csv";
         }
+        function uploadImage() {
+            var fileInput = document.createElement("input");
+            fileInput.type = "file";
+            fileInput.accept = "image/*";
+            fileInput.addEventListener("change", function(event) {
+                var file = event.target.files[0];
+                if (file) {
+                    alert("File uploaded: " + file.name);
+                } else {
+                    alert("Please select a file to upload.");
+                }
+            });
+            fileInput.click();
+        }
     </script>
-
 </body>
 </html>

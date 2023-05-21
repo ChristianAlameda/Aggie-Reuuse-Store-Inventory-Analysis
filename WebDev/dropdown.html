@@ -6,6 +6,7 @@
 </head>
 <body>
     <div class="container">
+
         <h2>Describe your item you want to add</h2>
         <label>Which item</label>
         <select id="itemDropdown">
@@ -32,6 +33,14 @@
         </select>
         <label>Description:</label>
         <input type="text"><br><br>
+
+        </div>
+        <div class="box right-box">
+            <h2>Upload an image:</h2>
+            <input type="file" id="imageUpload" accept="image/*">
+            <button onclick="uploadImage()">Upload</button>
+        </div>
+
     </div>
 
     <script>
@@ -42,6 +51,16 @@
                 alert("You selected: " + selectedItem);
             } else {
                 alert("Please select an item.");
+            }
+        }
+
+        function uploadImage() {
+            var fileInput = document.getElementById("imageUpload");
+            var file = fileInput.files[0];
+            if (file) {
+                alert("Image uploaded successfully!");
+            } else {
+                alert("Please select an image to upload.");
             }
         }
     </script>
