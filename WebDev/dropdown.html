@@ -2,32 +2,64 @@
 <html>
 <head>
     <title>Item Selection</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #ffefba, #ffffff);
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        #itemDropdown {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h2>Select an item:</h2>
-    <select id="itemDropdown">
-        <option value="">Select an item</option>
-        <option value="Bag/Backpack">Bag/Backpack</option>
-        <option value="Belt">Belt</option>
-        <option value="Books">Books</option>
-        <option value="Dress">Dress</option>
-        <option value="Hat">Hat</option>
-        <option value="Household">Household</option>
-        <option value="Jacket">Jacket</option>
-        <option value="Long-sleeve/button up">Long-sleeve/button up</option>
-        <option value="Pants/Jeans">Pants/Jeans</option>
-        <option value="Ring/Jewelry">Ring/Jewelry</option>
-        <option value="School supplies">School supplies</option>
-        <option value="Shirts">Shirts</option>
-        <option value="Shoes">Shoes</option>
-        <option value="Skirt">Skirt</option>
-        <option value="Sunglasses">Sunglasses</option>
-        <option value="Sweater/Cardigan">Sweater/Cardigan</option>
-        <option value="Tank Top">Tank Top</option>
-        <option value="Tie">Tie</option>
-        <option value="Misc">Misc</option>
-    </select>
-    <button onclick="confirmItem()">Confirm</button>
+    <div class="container">
+        <h2>Select an item:</h2>
+        <select id="itemDropdown">
+            <option value="">Select an item</option>
+            <option value="Bag/Backpack">Bag/Backpack</option>
+            <option value="Belt">Belt</option>
+            <option value="Books">Books</option>
+            <option value="Dress">Dress</option>
+            <option value="Hat">Hat</option>
+            <option value="Household">Household</option>
+            <option value="Jacket">Jacket</option>
+            <option value="Long-sleeve/button up">Long-sleeve/button up</option>
+            <option value="Pants/Jeans">Pants/Jeans</option>
+            <option value="Ring/Jewelry">Ring/Jewelry</option>
+            <option value="School supplies">School supplies</option>
+            <option value="Shirts">Shirts</option>
+            <option value="Shoes">Shoes</option>
+            <option value="Skirt">Skirt</option>
+            <option value="Sunglasses">Sunglasses</option>
+            <option value="Sweater/Cardigan">Sweater/Cardigan</option>
+            <option value="Tank Top">Tank Top</option>
+            <option value="Tie">Tie</option>
+            <option value="Misc">Misc</option>
+        </select>
+        <button onclick="confirmItem()">Confirm</button>
+    </div>
 
     <script>
         function confirmItem() {
