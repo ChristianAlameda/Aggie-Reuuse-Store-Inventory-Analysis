@@ -9,20 +9,16 @@
         <h2>Welcome to the Home Page</h2>
         <div class="buttons">
             <button class="add" onclick="openDropdown()">Add</button>
-            <button class="remove">Remove</button>
-            <button class="view">View Excel</button>
-            <button class="upload" onclick="uploadImage()">Upload Image</button>
-            <button class="add" onclick="openDropdown1()">Add</button>
-            <button class="remove" onclick="openDropdown2()">Remove</button>
-            <button class="view" onclick="excel()">View Excel</button>
+            <button class="remove" onclick="openDropdown1()">Remove</button>
+            <button class="view" onclick="excel()">Excel</button>
         </div>
     </div>
 
     <script>
-        function openDropdown1() {
+        function openDropdown() {
             window.location.href = "dropdown.html";
         }
-        function openDropdown2(){
+        function openDropdown1(){
             window.location.href = "dropdown2.html";
         }
         function excel(){

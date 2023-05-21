@@ -43,9 +43,3 @@ html, body {
     background-color: #45a049;
   }
   
-  <h1>Upload Picture</h1>
-    <form method="POST" action="/process_picture" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*" required>
-        <br><br>
-        <input type="submit" value="Upload">
-    </form>
