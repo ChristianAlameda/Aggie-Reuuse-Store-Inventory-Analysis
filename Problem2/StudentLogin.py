@@ -2,16 +2,35 @@ from database import database
 import datetime
 import pprint
 
-def main():
-    db = database(username="Aggie", password="Aggie")
-    for post in db.returnPosts():
-        pprint.pprint(post)
-    studentID = input("Input ID: ")
-    db.insertDocument({
-        "StudentID":studentID,
-        "datetime":datetime.datetime.utcnow()  
+from flask import Flask
+from flask import request
+
+app = Flask(__name__)
+
+def addStudentID(id):
+    db.insertPosts({
+        "StudentID": id,
+        "date": datetime.datetime.utcnow()
     })
 
-if __name__ == "__main__":
-    main()
+@app.route("/student", methods=['GET', 'POST'])
+def student():
+    print(request.method)
+    #print(request.form['id'])
+    if request.method == 'POST':
+        addStudentID(request.form['id'])
+        
+    return ui
+        
+@app.route("/")
+def index():
+    return ui
 
+if __name__ == "__main__":
+    db = database(username="Aggie", password="Aggie")
+
+    file = open("index.html", "r")
+    ui = file.read()
+    file.close()
+
+    app.run()
