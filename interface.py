@@ -1,9 +1,12 @@
 from settingUp import Inventory
 import cv2
 import time
+import os
+#from gridfs import GridFS
 class Interface:
     def __init__(self):
         self.Inventory = Inventory()
+        
         self.selections = ['Bag/Backpack',
             'belt',
             'Books',
@@ -87,9 +90,12 @@ class Interface:
             input('Press Enter to capture(In 3 seconds)')
             time.sleep(3)
             return_value, image = camera.read()
-            picture = cv2.imwrite('opencv'+'.png', image)
+            cv2.imwrite('opencv'+'.png', image)
+            #aws to make it a url
             item = self.selector()
             del(camera)
+            path = 'opencv.png'
+            picture = os.path.join('picture.png')
             itemDescription  = {
                 "item" : item,
                 "picture" : picture,
