@@ -1,7 +1,9 @@
-import settingUp
+from settingUp import Inventory
 import cv2
+import time
 class Interface:
     def __init__(self):
+        self.Inventory = Inventory()
         self.selections = ['Bag/Backpack',
             'belt',
             'Books',
@@ -75,22 +77,26 @@ class Interface:
         for i in self.selections:
             print('[' +str(x)+ '] - '+i)
             x = x+1
+    def choice(self):
+        customerChoice = int(input("Enter [0] - add an item\nEnter [1] - remove an item\nEnter here: "))
+        if customerChoice == 0:
+            #take a picture call it takePicture
+            print('We need a picture of the item')
+            camera = cv2.VideoCapture(0)# first camera
             
-    customerChoice = int(input("Enter [0] - add an item '\n'Enter [1] - remove an item'\n'Enter here: "))
-    if customerChoice == 0:
-        #take a picture call it takePicture
-        camera = cv2.VideoCapture(0)
-        for i in range(10):
+            input('Press Enter to capture(In 3 seconds)')
+            time.sleep(3)
             return_value, image = camera.read()
-            cv2.imwrite('opencv'+str(i)+'.png', image)
-        del(camera)
-        itemDescription  = {
-            "item" : selector(),
-            "picture" : takePicture,
-            "addedItemDescription" : input('Write me a description of the item you are adding')
-        }
-        
-        settingUp.add(itemDescription)
-    elif customerChoice == 1:
-        item = selector()
-        settingUp.remove(item)
+            picture = cv2.imwrite('opencv'+'.png', image)
+                
+            del(camera)
+            itemDescription  = {
+                "item" : self.selector(),
+                "picture" : picture,
+                "addedItemDescription" : input('Write me a description of the item you are adding: ')
+            }
+            
+            self.Inventory.add(itemDescription)
+        elif customerChoice == 1:
+            item = self.selector()
+            self.Inventory.remove(item)

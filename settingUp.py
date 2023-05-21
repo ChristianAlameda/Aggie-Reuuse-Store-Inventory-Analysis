@@ -1,15 +1,15 @@
 
 import datetime
-import Problem2.database
+from Problem2.database import database
 class Inventory:
     def __init__(self):
-        pass
+        self.db = database(username="Aggie", password="Aggie")
     
-    def add(self,itemName):
-        return Problem2.database.insertDocument(self,itemName)
+    def add(self,itemName): #uses insertPosts(self, post:dict):
+        return self.db.insertPosts(itemName)
         
-    def remove(self, itemName):
-        return Problem2.database.deletePost(itemName)
+    def remove(self, itemName): #uses def deletePost(self, query:dict)
+        return self.db.deletePost(itemName)
     
     def edit(self, itemName, newItemName):
         pass
