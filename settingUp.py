@@ -1,20 +1,23 @@
-import pymongo
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-mydb = myclient["mydatabase"]
-print(myclient.list_database_names())
 
-class inventory:
+import datetime
+from Problem2.database import database
+class Inventory:
     def __init__(self):
-        pass
-    def add(self,itemName):
-        pass
-    def remove(self, itemName):
-        pass
+        self.db = database(username="Aggie", password="Aggie")
+    
+    def add(self,itemName): #uses insertPosts(self, post:dict):
+        return self.db.insertPosts(itemName)
+        
+    def remove(self, itemName): #uses def deletePost(self, query:dict)
+        return self.db.deletePost(itemName)
+    
     def edit(self, itemName, newItemName):
         pass
+    
 class peopleCounting:
     def __init__(self):
         pass
+    
     #count the ammount of people that were there each day and keep that for each day
     def countPerDay(self):
         pass
