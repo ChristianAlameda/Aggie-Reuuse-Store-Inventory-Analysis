@@ -106,5 +106,12 @@ class Interface:
             
             self.Inventory.add(itemDescription)
         elif customerChoice == 1:
-            item = self.selector()
+            item1 = self.selector()
+            item = {
+                "item":item1,
+                "picture":None,
+                "qrcode":None,
+                "addedItemDescription":None
+            }
+            
             self.Inventory.remove(item)

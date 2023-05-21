@@ -46,7 +46,7 @@ class database():
             yield post
 
     def deletePost(self, query:dict):
-        self.posts.delete_one(quary)
+        self.posts.delete_one(query)
     
 def main():
     db = database(username="Aggie", password="Aggie")
