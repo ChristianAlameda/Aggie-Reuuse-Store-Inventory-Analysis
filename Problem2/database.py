@@ -37,6 +37,9 @@ class database():
     def getPost(self, query:dict):
         return self.posts.find_one(query)
     
+    def getPosts(self, query:dict):
+        return self.posts.find(query)
+    
     def printPosts(self):
         for post in self.posts.find():
             pprint.pprint(post)
@@ -46,7 +49,7 @@ class database():
             yield post
 
     def deletePost(self, query:dict):
-        self.posts.delete_one(query)
+        self.posts.delete_one(quary)
     
 def main():
     db = database(username="Aggie", password="Aggie")
