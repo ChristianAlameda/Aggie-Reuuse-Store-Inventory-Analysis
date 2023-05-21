@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Item Selection</title>
+    <link rel="stylesheet" type="text/css" href="style_dropdown.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Select an item:</h2>
+        <select id="itemDropdown">
+            <option value="">Select an item</option>
+            <option value="Bag/Backpack">Bag/Backpack</option>
+            <option value="Belt">Belt</option>
+            <option value="Books">Books</option>
+            <option value="Dress">Dress</option>
+            <option value="Hat">Hat</option>
+            <option value="Household">Household</option>
+            <option value="Jacket">Jacket</option>
+            <option value="Long-sleeve/button up">Long-sleeve/button up</option>
+            <option value="Pants/Jeans">Pants/Jeans</option>
+            <option value="Ring/Jewelry">Ring/Jewelry</option>
+            <option value="School supplies">School supplies</option>
+            <option value="Shirts">Shirts</option>
+            <option value="Shoes">Shoes</option>
+            <option value="Skirt">Skirt</option>
+            <option value="Sunglasses">Sunglasses</option>
+            <option value="Sweater/Cardigan">Sweater/Cardigan</option>
+            <option value="Tank Top">Tank Top</option>
+            <option value="Tie">Tie</option>
+            <option value="Misc">Misc</option>
+        </select>
+        <button onclick="confirmItem()">Confirm</button>
+    </div>
+
+    <script>
+        function confirmItem() {
+            var dropdown = document.getElementById("itemDropdown");
+            var selectedItem = dropdown.value;
+            if (selectedItem !== "") {
+                alert("You selected: " + selectedItem);
+            } else {
+                alert("Please select an item.");
+            }
+        }
+    </script>
+</body>
+</html>
