@@ -37,6 +37,9 @@ class database():
     def getPost(self, query:dict):
         return self.posts.find_one(query)
     
+    def getPosts(self, query:dict):
+        return self.posts.find(query)
+    
     def printPosts(self):
         for post in self.posts.find():
             pprint.pprint(post)
