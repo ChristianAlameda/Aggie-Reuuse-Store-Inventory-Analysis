@@ -88,10 +88,10 @@ class Interface:
             time.sleep(3)
             return_value, image = camera.read()
             picture = cv2.imwrite('opencv'+'.png', image)
-                
+            item = self.selector()
             del(camera)
             itemDescription  = {
-                "item" : self.selector(),
+                "item" : item,
                 "picture" : picture,
                 "addedItemDescription" : input('Write me a description of the item you are adding: ')
             }
