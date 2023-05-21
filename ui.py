@@ -5,7 +5,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(800, 800)
-        """
+        
         self.pushButton = QtWidgets.QPushButton(Dialog)
         self.pushButton.setGeometry(QtCore.QRect(150, 70, 93, 28))
  
@@ -20,8 +20,10 @@ class Ui_Dialog(object):
         self.pushButton.clicked.connect(self.showmsg)
  
         
-        """
-        #self.getText()
+        
+        self.pushButton = QtWidgets.QPushButton(Dialog)
+        self.pushButton.setGeometry(QtCore.QRect(150, 70, 93, 28))
+        #self.getText = 
         #self.getItem()
         
         
