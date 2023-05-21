@@ -69,7 +69,7 @@ class Interface:
     
 
     
-    settingUp.remove()
+    
     def typeOfSelections(self):
         x = 0
         for i in self.selections:
@@ -92,5 +92,5 @@ class Interface:
         
         settingUp.add(itemDescription)
     elif customerChoice == 1:
-        item1 = selector()
-        settingUp.remove(item2)
+        item = selector()
+        settingUp.remove(item)
