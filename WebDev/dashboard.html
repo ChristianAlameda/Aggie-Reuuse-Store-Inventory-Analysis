@@ -11,7 +11,7 @@
         <div class="buttons">
             <button class="add" onclick="openDropdown1()">Add</button>
             <button class="remove" onclick="openDropdown2()">Remove</button>
-            <button class="view">View Excel</button>
+            <button class="view" onclick="excel()">View Excel</button>
         </div>
     </div>
 
@@ -21,6 +21,9 @@
         }
         function openDropdown2(){
             window.location.href = "dropdown2.html";
+        }
+        function excel(){
+            window.location.href = "Problem2/stats.csv";
         }
     </script>
 
