@@ -5,7 +5,7 @@ from datetime import datetime
 import random
 import string
 
-class QRCODE:
+class QR_CODE:
     def __init__(self):
         
     # Inventory data structure to store the items
@@ -27,7 +27,7 @@ class QRCODE:
         self.generate_qr_code(item)
 
     # Function to generate a QR code for an inventory item
-    def generate_qr_code(item):
+    #def generate_qr_code(item):
         unique_code = f"{item['name']}-{item['serial_number']}-{item['date_added']}"
 
         qr = qrcode.QRCode(
