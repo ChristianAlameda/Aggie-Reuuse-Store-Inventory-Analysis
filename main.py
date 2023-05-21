@@ -1,8 +1,7 @@
-import interface
-from QR_Code import QR_CODE
+from interface import Interface
+from QRCODE import QRCODE
 if __name__=="__main__":
-    #x = interface.Interface()
-    #x.choice()
-    x = QR_CODE()
-    x.generate_qr_code()
+    x = Interface()
+    x.choice()
+    
     

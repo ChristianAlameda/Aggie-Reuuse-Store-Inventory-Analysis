@@ -2,6 +2,7 @@ from settingUp import Inventory
 import cv2
 import time
 import os
+from QRCODE import QRCODE
 #from gridfs import GridFS
 class Interface:
     def __init__(self):
@@ -94,11 +95,12 @@ class Interface:
             #aws to make it a url
             item = self.selector()
             del(camera)
-            path = 'opencv.png'
+            qrcode = os.path.join('qrcode.png')
             picture = os.path.join('picture.png')
             itemDescription  = {
                 "item" : item,
                 "picture" : picture,
+                "qrcode": qrcode,
                 "addedItemDescription" : input('Write me a description of the item you are adding: ')
             }
             

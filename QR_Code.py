@@ -4,6 +4,10 @@ from io import BytesIO
 from datetime import datetime
 import random
 import string
+# Gather data from the user to add an item to the inventory
+name = input("Enter the item name: ")
+
+# Add the item to the inventory
 
 class QR_CODE:
     def __init__(self):
@@ -17,20 +21,20 @@ class QR_CODE:
         return serial_number
 
     # Function to add an item to the inventory
-    def add_item(self,name):
+    def add_item(self):
         item = {
             'name': name,
             'serial_number': self.generate_serial_number(),
             'date_added': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
         self.inventory.append(item)
-        self.generate_qr_code(item)
+        
 
     # Function to generate a QR code for an inventory item
-    #def generate_qr_code(item):
+    
         unique_code = f"{item['name']}-{item['serial_number']}-{item['date_added']}"
 
-        qr = qrcode.QRCode(
+        qr = code.QRCode(
             version=1,
             box_size=10,
             border=5
@@ -41,9 +45,3 @@ class QR_CODE:
 
         # Display the QR code
         qr_image.show()
-
-    # Gather data from the user to add an item to the inventory
-    name = input("Enter the item name: ")
-
-    # Add the item to the inventory
-    add_item(name)
